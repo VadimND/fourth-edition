@@ -18,7 +18,10 @@ namespace PickACardUI
             }
             return pickedCards;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private static string RandomSuit()
         {
             int value = random.Next(1, 5);
