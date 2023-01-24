@@ -51,9 +51,12 @@ string[] getBinary()
 
 }
 
+Console.Write("Vadim bin: ");
+
 foreach (string item in getBinary())
 {
     Console.Write(item);
 }
-//Console.Write("Vadim bin: " + getBinary());
+
+Console.Write("\n" + getBinary());
 
