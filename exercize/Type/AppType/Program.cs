@@ -38,4 +38,5 @@ int MyMethod(bool add3) {
 
     return value;
 }
-Console.WriteLine(MyMethod(false));
+//Console.WriteLine(MyMethod(false));
+
