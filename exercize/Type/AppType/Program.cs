@@ -23,7 +23,7 @@ myString = myString + myByte + myDouble + myChar;
 //Console.WriteLine("myString " + myString);
 //Console.WriteLine("myByte " + myByte);
 //Console.WriteLine("myChar " + myChar);
-
+//Console.Write(Convert.ToString('v', 2));
 int MyMethod(bool add3) {
     int value = 12;
 
@@ -39,4 +39,24 @@ int MyMethod(bool add3) {
     return value;
 }
 //Console.WriteLine(MyMethod(false));
+string[] getBinary()
+{
+    var t = "Vadim";
+    string[] result = new String[t.Length];
+    for (int i = 0; i < t.Length; i++)
+    {
+        result[i] += Convert.ToString(t[i], 2);        
+    }
+    return result;
+
+}
+
+Console.Write("Vadim bin: ");
+
+foreach (string item in getBinary())
+{
+    Console.Write(item);
+}
+
+Console.Write("\n" + getBinary());
 
