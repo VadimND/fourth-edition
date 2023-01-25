@@ -14,7 +14,7 @@ namespace ElephantApp
             Elephant lucinda = new Elephant() { Name = "Lucinda", EarSize = 33 };
             Elephant lloyd = new Elephant() { Name = "Lloyd", EarSize = 40 };
 
-            Console.WriteLine("Press 1 for Lloyd, 2 for Lucinda, 3 to swap");
+            Console.WriteLine("Press 1 for Lloyd, 2 for Lucinda, 3 to swap, 5 for speakTo (Lucinda), 6 for speakto (lloyd)");
 
             while(true)
             {
@@ -47,6 +47,10 @@ namespace ElephantApp
                 else if(keyChar == '5')
                 {
                     lucinda.SpeakTo(lloyd, "Hi, Lloyd!");
+                }
+                else if(keyChar == '6')
+                {
+                    lloyd.SpeakTo(lucinda, "Hi, Lucinda!");
                 }
                 else return;               
             }          
