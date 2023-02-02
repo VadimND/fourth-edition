@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{87992435-B9E5-4218-8522-E723C3A39E32}</ProjectGuid>
+    <ProjectGuid>{DFDDEAF0-8B2D-4634-AAAA-73B4458E2A2F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SwimApp</RootNamespace>
-    <AssemblyName>SwimApp</AssemblyName>
+    <RootNamespace>GumbleMachine</RootNamespace>
+    <AssemblyName>GumbleMachine</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassCoins.cs" />
-    <Compile Include="ClassQ.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
