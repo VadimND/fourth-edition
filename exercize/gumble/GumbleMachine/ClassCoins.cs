@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SwimApp
+namespace GumbleMachine
 {
-    internal class ClassCoins
+    public class ClassCoins
     {
         private int gumballs;
         private int price;
@@ -14,21 +14,23 @@ namespace SwimApp
 
         public ClassCoins(int gumballs, int price)
         {
-            gumballs = this.gumballs;
-            price = Price;
+            this.gumballs = gumballs;
+            this.price = price;
         }
 
-        private string DispenseOneGumballs(int price, int coinsInserted)
-        {   
-            // Проверка резервного поля price
-            if(this.coinsInserted >= price)
+        public string DispenseOneGumballs(int Price, int coinsInserted)
+        {
+            // Check the price field
+            if (coinsInserted >= Price)
             {
                 gumballs -= 1;
-                return "Here's your gumballs";
-            } else 
+                return "Here's your gumball";
+            }
+            else
             {
                 return "Insert more coins";
             }
         }
     }
 }
+
