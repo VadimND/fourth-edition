@@ -31,40 +31,11 @@ namespace SwordApp
 
             if (Flaming) Damage += FLAME_DAMAGE;
         }
-
+        
         public SwordDamageNext(int startingRoll) 
         { 
             roll = startingRoll;
             CalculateDamage();
-        }
-       
-        // public decimal MagicMultiplier = 1M;
-        // public int FlamingDamage = 0;
-        // public int Damage;
-
-        
-        /*
-        public void SetMagic(bool isMagic)
-        {
-            if (isMagic)
-            {
-                MagicMultiplier = 1.75M;
-            }
-            else
-            {
-                MagicMultiplier = 1M;
-            }
-            CalculateDamage();
-        }
-        
-        public void SetFlaming(bool isFlaming)
-        {
-            CalculateDamage();
-            if (isFlaming)
-            {
-                Damage += FLAME_DAMAGE;
-            }
-        }
-        */
+        }      
     }
 }
