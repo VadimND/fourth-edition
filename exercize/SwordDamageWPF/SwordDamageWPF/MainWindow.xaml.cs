@@ -74,6 +74,5 @@ namespace SwordDamageWPF
             swordDamage.Magic = false;
             DisplayDamage();
         }
-
     }
 }
