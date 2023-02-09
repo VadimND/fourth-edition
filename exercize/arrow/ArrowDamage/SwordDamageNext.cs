@@ -6,22 +6,12 @@ using System.Threading.Tasks;
 
 namespace ArrowDamage
 {
-    internal class SwordDamageNext
+    internal class SwordDamageNext : WeaponDamage
     {
         public const int BASE_DAMAGE = 3;
-        public const int FLAME_DAMAGE = 2;
+        public const int FLAME_DAMAGE = 2;        
 
-        public int Damage { get; private set; }
-        private int roll;
-        public int Roll { get { return roll; } set { roll = value;  CalculateDamage(); } }
-
-        private bool magic;
-        public bool Magic { get { return magic; } set { magic = value;  CalculateDamage(); } }
-
-        private bool flaming;     
-        public bool Flaming { get { return flaming; } set { flaming = value;  CalculateDamage(); } }
-
-        private void CalculateDamage()
+        protected override void CalculateDamage()
         {
             decimal MagicMultiplier = 1M;
             if (Magic) MagicMultiplier = 1.75M;
@@ -32,10 +22,6 @@ namespace ArrowDamage
             if (Flaming) Damage += FLAME_DAMAGE;
         }
         
-        public SwordDamageNext(int startingRoll) 
-        { 
-            roll = startingRoll;
-            CalculateDamage();
-        }      
+        public SwordDamageNext(int startingRoll) : base(startingRoll) { }           
     }
 }
