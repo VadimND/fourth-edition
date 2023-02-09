@@ -54,9 +54,20 @@ namespace PigeonApp
             Egg[] eggs = new Egg[numberOfEggs];
             for (int i = 0; i < numberOfEggs; i++)
             {
-                eggs[i] = new Egg(Bird.Randomizer.NextDouble() * 2 + 1, "white");                
+                //eggs[i] = new Egg(Bird.Randomizer.NextDouble() * 2 + 1, "white");
+                if (Bird.Randomizer.Next(4) == 0)
+                    eggs[i] = new BrokenEgg("white");
+                else
+                    eggs[i] = new Egg(Bird.Randomizer.NextDouble() * 2 + 1, "white");
             }
             return eggs;            
+        }
+    }
+    class BrokenEgg : Egg
+    {
+        public BrokenEgg(string color) : base(0, $"broken { color}")
+        {
+            Console.WriteLine("A bird Laid a broken egg");
         }
     }
     class Ostrich : Bird
