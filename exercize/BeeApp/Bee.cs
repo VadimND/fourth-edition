@@ -7,24 +7,22 @@ using System.Threading.Tasks;
 namespace BeeApp
 {
     internal class Bee
-    {        
-        public Bee(string name) {
-            name = Job;
-        }
-        public readonly float CostPerShift;
-        public string Job;
+    {
+        public virtual float CostPerShift { get; }
+        public string Job { get; private set; }
 
-        protected virtual string DoJob() {
-            
-        }
+        public Bee(string job) {
+            Job = job;
+        }               
         
-        public virtual void WorkTheNextShift(float HoneyConsumed)
+        public void WorkTheNextShift()
         {
-            if (HoneyVault.ConsumeHoney(HoneyConsumed))
+            if (HoneyVault.ConsumeHoney(CostPerShift))
             {
                 DoJob();
             }
         }
+        protected virtual void DoJob() { }
 
     }
 }

@@ -10,21 +10,15 @@ namespace BeeApp
     {
         public const float NECTAR_COLLECTED_PER_SHIFT = 33.25f;
 
-        public NectarCollector(string name) : base(name)
+        public NectarCollector() : base("Nectar Collector")
         {
         }
 
-        new readonly float CostPerShift = 1.95f;
-
-        public override void WorkTheNextShift(float HoneyConsumed)
+        public override float CostPerShift { get { return 1.95f; } }
+        
+        protected override void DoJob()
         {
-            base.WorkTheNextShift(HoneyConsumed);
-        }
-
-        protected override string DoJob()
-        {
-            HoneyVault.CollectNectar(NECTAR_COLLECTED_PER_SHIFT);
-            return base.DoJob();
+            HoneyVault.CollectNectar(NECTAR_COLLECTED_PER_SHIFT);            
         }
     }
 }

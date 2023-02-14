@@ -10,19 +10,14 @@ namespace BeeApp
     {
         public const float NECTAR_PROCESSED_PER_SHIFT = 33.15f;
 
-        public override void WorkTheNextShift(float HoneyConsumed)
-        {
-            base.WorkTheNextShift(HoneyConsumed);
-        }
+        public override float CostPerShift { get { return 1.7f; } }
 
-        protected override string DoJob()
-        {
-            HoneyVault.ConvertNectarToHoney(NECTAR_PROCESSED_PER_SHIFT);
-            return base.DoJob();
-        }
-
-        public HoneyManufacturer(string name) : base(name)
+        public HoneyManufacturer() : base("Honey Manufacturer")
         {
         }
+        protected override void DoJob()
+        {
+            HoneyVault.ConvertNectarToHoney(NECTAR_PROCESSED_PER_SHIFT);            
+        }        
     }
 }

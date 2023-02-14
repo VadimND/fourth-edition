@@ -8,23 +8,22 @@ namespace BeeApp
 {
     internal class EggCare : Bee
     {
-        public EggCare(string name) : base(Queen)
-        {
-            Queen queen = new Queen();
-        }
-        new readonly float CostPerShift = 1.35f;
-
         public const float CARE_PROGRESS_PER_SHIFT = 0.15f;
 
-        public override void WorkTheNextShift(float HoneyConsumed)
-        {
-            base.WorkTheNextShift(HoneyConsumed);
-        }
+        public override float CostPerShift { 
+            get { return 1.35f; }
+        }       
 
-        protected override string DoJob()
+        private Queen queen;
+
+        public EggCare(Queen queen) : base("Egg Care")
         {
-            queen.CareForEggs(CARE_PROGRESS_PER_SHIFT);
-            return base.DoJob();
+            this.queen = queen;
+        }        
+
+        protected override void DoJob()
+        {
+            queen.CareForEggs(CARE_PROGRESS_PER_SHIFT);            
         }
     }
 }

@@ -10,24 +10,26 @@ namespace BeeApp
 {
     internal class Queen : Bee
     {
-        public Queen(string name) : base(name)
-        {
-            this.name = name;
-            AssignBee("Egg Care");
-            AssignBee("Nectar Colector");
-            AssignBee("Honey Manufacturer");
-        }
-
-        new readonly float CostPerShift = 2.15f;
+        public const float EGGS_PER_SHIFT = 0.45f;
+        public const float HONEY_PER_UNASSIGNED_WORKER = 0.5f;
 
         private Bee[] workers = new Bee[] { };
+        private float unassignedWorkers = 3;
+        private float eggs = 0;
 
-        private float unassignedWorkers;
-        private float eggs;
-        private string name;
-        public const float EGGS_PER_SHIFT = .45f;
-        public const float HONEY_PER_UNASSIGNED_WORKER = .45f;
+        public string StatusReport { get; private set; }
+        public override float CostPerShift
+        {
+            get { return 2.15f; }
+        }
 
+        public Queen() : base("Queen")
+        {             
+            AssignBee("Egg Care");
+            AssignBee("Nectar Collector");
+            AssignBee("Honey Manufacturer");
+        }       
+                     
         private void AddWorker(Bee worker)
         {
             if (unassignedWorkers >= 1)
@@ -38,44 +40,64 @@ namespace BeeApp
             }
         }
 
-        public void AssignBee(string name)
+        private void UpdateStatusReport()
         {
-            switch(name)
-            {
-                case "Egg Care":
-                    AddWorker(new EggCare(this.name));
-                    break;
-                case "Nectar Collector":
-                    AddWorker(new NectarCollector(this.name));
-                    break;
-                case "Honey Manufacturer":
-                    AddWorker(new HoneyManufacturer(this.name));
-                    break;
-                default: break;
-            }
+            StatusReport = $"Vault report: \n{HoneyVault.StatusReport}\n" +
+                $"\nEgg count: {eggs: 0.0}\nUnassigned workers: {unassignedWorkers:0:0}\n" +
+                $"{WorkerStatus("Nectar Collector")}\n{WorkerStatus("Honey Manufacturer")}" +
+                $"\n{WorkerStatus("Egg Care")}\nTOTAL WORKERS: {workers.Length}";
         }
+
         public virtual void CareForEggs(float eggsToConvert)
         {
             if (eggs >= eggsToConvert)
             {
-                eggsToConvert = eggs - eggsToConvert + unassignedWorkers;
+                eggs -= eggsToConvert;
+                unassignedWorkers += eggsToConvert;
             }
         }
-        public override void WorkTheNextShift(float HoneyConsumed)
+
+        private string WorkerStatus(string job)
         {
-            base.WorkTheNextShift(HoneyConsumed);
+            int count = 0;
+            foreach (Bee worker in workers)
+            {
+                if (worker.Job == job) count++;
+            }
+            string s = "s";
+            if (count == 1) s = "";
+            return $"{count} {job} bee{s}";
         }
 
-        protected override string DoJob()
+        public void AssignBee(string job)
         {
-
-            return base.DoJob();
-
+            switch(job)
+            {                
+                case "Nectar Collector":
+                    AddWorker(new NectarCollector());
+                    break;
+                case "Honey Manufacturer":
+                    AddWorker(new HoneyManufacturer());
+                    break;
+                case "Egg Care":
+                    AddWorker(new EggCare(this));
+                    break;
+                default: break;
+            }
+            UpdateStatusReport();
         }
-        private void UpdateStatusReport() {
-            HoneyVault.StatusReport;
-        }
+
+        protected override void DoJob()
+        {
+            eggs += EGGS_PER_SHIFT;
+            foreach (Bee worker in workers)
+            {
+                worker.WorkTheNextShift();
+            }
+            HoneyVault.ConsumeHoney(unassignedWorkers * HONEY_PER_UNASSIGNED_WORKER);
+            UpdateStatusReport();
+        }       
         
-
+        
     }
 }
