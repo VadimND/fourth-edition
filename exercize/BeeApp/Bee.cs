@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace BeeApp
 {
-    internal class Bee
+    abstract class Bee
     {
-        public virtual float CostPerShift { get; }
+        public abstract float CostPerShift { get; }
         public string Job { get; private set; }
 
-        public Bee(string job) {
+        public Bee(string job)
+        {
             Job = job;
-        }               
-        
+        }
+
         public void WorkTheNextShift()
         {
             if (HoneyVault.ConsumeHoney(CostPerShift))
@@ -22,7 +23,7 @@ namespace BeeApp
                 DoJob();
             }
         }
-        protected virtual void DoJob() { }
 
+        protected abstract void DoJob();
     }
 }

@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 namespace BeeApp
 {
-    internal class NectarCollector : Bee
+    class NectarCollector : Bee
     {
         public const float NECTAR_COLLECTED_PER_SHIFT = 33.25f;
-
-        public NectarCollector() : base("Nectar Collector")
-        {
-        }
-
         public override float CostPerShift { get { return 1.95f; } }
-        
+        public NectarCollector() : base("Nectar Collector") { }
+
         protected override void DoJob()
         {
-            HoneyVault.CollectNectar(NECTAR_COLLECTED_PER_SHIFT);            
+            HoneyVault.CollectNectar(NECTAR_COLLECTED_PER_SHIFT);
         }
     }
 }
