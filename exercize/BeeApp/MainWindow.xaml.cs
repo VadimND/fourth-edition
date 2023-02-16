@@ -19,11 +19,7 @@ namespace BeeApp
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    using System.Windows.Threading;
-
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
         private Queen queen = new Queen();
@@ -35,7 +31,7 @@ namespace BeeApp
             statusReport.Text = queen.StatusReport;
             timer.Tick += Timer_Tick;
             timer.Interval = TimeSpan.FromSeconds(1.5);
-           // timer.Start();
+            timer.Start();
         }
 
         private void Timer_Tick(object sender, EventArgs e)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ArrowDamage
 {
-    internal class WeaponDamage
+    abstract class WeaponDamage
     {
         public WeaponDamage(int startingRoll) 
         {
@@ -23,6 +23,6 @@ namespace ArrowDamage
         private bool flaming;
         public bool Flaming { get { return flaming; } set { flaming = value; CalculateDamage(); } }
 
-        protected virtual void CalculateDamage() {        }        
+        protected abstract void CalculateDamage();      
     }
 }
