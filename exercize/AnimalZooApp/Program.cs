@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 
 namespace AnimalZooApp
 {
+    interface ISwimmer
+    {
+        void Swim();
+    }
+    interface IPackHunter
+    {
+        void HuntInPack();
+    }
     abstract class Animal
     {
         public abstract void MakeNoise();
     }
-    class Hippo : Animal
+    class Hippo : Animal, ISwimmer
     {
         public override void MakeNoise ()
         {
@@ -25,7 +33,7 @@ namespace AnimalZooApp
     {
         public bool BelongsToPack { get; protected set; } = false;
     }
-    class Wolf : Canine
+    class Wolf : Canine, IPackHunter
     {
         public Wolf(bool belongsToPack)
         {
@@ -38,7 +46,7 @@ namespace AnimalZooApp
         }
         public void HuntInPack()
         {
-            if (BelongsToPack) Console.WriteLine("I'm going thunting with my pack!");
+            if (BelongsToPack) Console.WriteLine("I'm going hunting with my pack!");
             else Console.WriteLine("I'm not in a pack.");
         }
     }
@@ -47,6 +55,33 @@ namespace AnimalZooApp
     {
         static void Main(string[] args)
         {
+            Animal[] animals =
+            {
+                new Wolf(true),
+                new Wolf(false),
+                new Wolf(false),
+                new Hippo(),
+                new Hippo(),
+            };
+            
+            foreach (Animal animal in animals)
+            {
+                animal.MakeNoise();
+                if (animal is ISwimmer swimmer)
+                {
+                    swimmer.Swim();
+                }
+                if(animal is IPackHunter hunter)
+                {
+                    hunter.HuntInPack();
+                }
+
+                Console.WriteLine();
+            }
+
+            Console.ReadKey();
+
+           
         }
     }
 }
