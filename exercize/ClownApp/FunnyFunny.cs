@@ -8,14 +8,15 @@ namespace ClownApp
 {
     internal class FunnyFunny : IClown
     {
-        private string funnyThingHave { get; }
-        public FunnyFunny(string funnyThing)
+        private string funnyThingIHave;
+        public string FunnyThingIHave { get { return funnyThingIHave; } }
+        public FunnyFunny(string funnyThingIHave)
         {
-            this.funnyThingHave = funnyThing;
+            this.funnyThingIHave = funnyThingIHave;
         }
-        void Honk()
+        public void Honk()
         {
-            Console.WriteLine("Hi kids! I have a" + funnyThingHave + ".");
+            Console.WriteLine("Hi kids! I have a " + funnyThingIHave + ".");
         }
 
     }

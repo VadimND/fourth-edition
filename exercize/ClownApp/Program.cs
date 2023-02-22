@@ -10,10 +10,16 @@ namespace ClownApp
     {
         static void Main(string[] args)
         {
-            IClown fingersTheClown = new ScaryScary("big red noise", 14);
+            IClown.CarCapacity = 18;
+            Console.WriteLine(IClown.ClownCarDescription());
+
+            IClown fingersTheClown = new ScaryScary("big red nose", 14);
             fingersTheClown.Honk();
-            IScaryClown iScaryClownRef = fingersTheClown;
-            iScaryClownRef.ScareLittleChildren();
+            if (fingersTheClown is IScaryClown iScaryClownReference)
+            {
+                iScaryClownReference.ScareAdults();
+            }
+            Console.ReadLine();
         }
     }
 }

@@ -6,18 +6,20 @@ using System.Threading.Tasks;
 
 namespace ClownApp
 {
-    internal class ScaryScary : IScaryClown
+    internal class ScaryScary : FunnyFunny, IScaryClown
     {
-        private int scaryThingCount;
-        private string funnyThingHave;
-        public ScaryScary(string funnyThingHave, int scaryThingCount)
-        {
-            this.funnyThingHave = funnyThingHave;
+        private readonly int scaryThingCount;
+
+        public ScaryScary(string funnyThing, int scaryThingCount) : base(funnyThing)
+        {            
             this.scaryThingCount = scaryThingCount;
         }
-        void ScareLittleChildren()
+       
+        public string ScaryThingIHave { get { return scaryThingCount + " spiders"; } }
+        
+        public void ScareLittleChildren()
         {
-            Console.WriteLine("Boo! Gotcha! Look at my..." + scaryThingCount);
+            Console.WriteLine("Boo! Gotcha! Look at my... " + ScaryThingIHave);
         }
     }
 }
