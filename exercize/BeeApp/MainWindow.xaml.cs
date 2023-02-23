@@ -28,7 +28,7 @@ namespace BeeApp
         public MainWindow()
         {
             InitializeComponent();
-            statusReport.Text = queen.StatusReport;
+            //statusReport.Text = queen.StatusReport;
             timer.Tick += Timer_Tick;
             timer.Interval = TimeSpan.FromSeconds(1.5);
             timer.Start();

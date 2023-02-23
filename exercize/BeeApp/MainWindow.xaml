@@ -7,7 +7,10 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="BeeApp.MainWindow"
         mc:Ignorable="d"
         Title="Beehive Management System" Height="325" Width="625">
-    <Grid>
+    <Window.Resources>
+        <local:Queen x:Key="queen" />
+    </Window.Resources>
+    <Grid DataContext="{StaticResource queen}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
@@ -28,7 +31,7 @@
         </StackPanel>
         <Button Content="Work the next shift" Margin="20,20,20,20" Grid.Row="2" FontSize="18" Click="WorkShift_Click"/>
         <Label Grid.Column="1" Content="Queen's Report" HorizontalAlignment="Center" Margin="20,0" VerticalAlignment="Bottom" FontSize="18"/>
-        <TextBox x:Name="statusReport" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" HorizontalAlignment="Left" Margin="20" IsReadOnly="True"/>
+        <TextBox Text="{Binding StatusReport, Mode=OneWay}" x:Name="statusReport" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" HorizontalAlignment="Left" Margin="20" IsReadOnly="True"/>
 
 
 
