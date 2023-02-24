@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagnetApp", "MagnetApp.csproj", "{FAF6FF7B-2B27-4A77-BB83-1CA7EC1511AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAF6FF7B-2B27-4A77-BB83-1CA7EC1511AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAF6FF7B-2B27-4A77-BB83-1CA7EC1511AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAF6FF7B-2B27-4A77-BB83-1CA7EC1511AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAF6FF7B-2B27-4A77-BB83-1CA7EC1511AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F34A64D-544C-4018-B848-6644D3FAE981}
+	EndGlobalSection
+EndGlobal
