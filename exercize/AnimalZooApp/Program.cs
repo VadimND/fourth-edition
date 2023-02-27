@@ -76,12 +76,9 @@ namespace AnimalZooApp
                     hunter.HuntInPack();
                 }
 
-                Console.WriteLine();
+               // Console.WriteLine();
             }
-
-            Console.ReadKey();
-
-           
+            Console.ReadKey();           
         }
     }
 }
