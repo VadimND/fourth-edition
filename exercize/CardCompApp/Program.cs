@@ -69,9 +69,7 @@ namespace CardCompApp
         }
 
         static void Main(string[] args)
-        {
-            //Card card = new Card((Values)random.Next(1, 14), (Suits)random.Next(4));
-            //Console.WriteLine(card.Name);
+        {            
             List<Card> cards = new List<Card>();
             Console.WriteLine("Enter a number of cards: ");
             if (int.TryParse(Console.ReadLine(), out int amount))
