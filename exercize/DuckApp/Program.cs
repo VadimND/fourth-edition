@@ -88,8 +88,8 @@ namespace DuckApp
         {
             foreach (Duck duck in ducks)
             {
-                //Console.WriteLine(duck);
-                Console.WriteLine($"{duck.Size} inch {duck.Kind}");
+                Console.WriteLine(duck);
+                //Console.WriteLine($"{duck.Size} inch {duck.Kind}");
             }
         }
         

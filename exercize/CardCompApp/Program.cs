@@ -36,9 +36,13 @@ namespace CardCompApp
             this.Suit = suit;
             this.Value = value;
         }
-        public string Name
+        /*public string Name
         {
             get { return $"{Value} of {Suit}"; }
+        }*/
+        public override string ToString()
+        {
+            return $"{Value} of {Suit}";
         }
     }
     class CardComparerByValue : IComparer<Card>
@@ -64,7 +68,8 @@ namespace CardCompApp
         {
             foreach(Card card in cards)
             {
-                Console.WriteLine(card.Name);
+                //Console.WriteLine(card.Name);
+                Console.WriteLine(card);
             }            
         }
 
