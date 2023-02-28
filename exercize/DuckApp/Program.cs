@@ -6,7 +6,10 @@ namespace DuckApp
     {
         public int Size { get; set; }
         public KindOfDuck Kind { get; set; }
-
+        public override string ToString()
+        {
+            return $"A {Size} inch {Kind}";
+        }
         public int CompareTo(Duck duckToCompare)
         {
             if (this.Size > duckToCompare.Size)
@@ -85,8 +88,10 @@ namespace DuckApp
         {
             foreach (Duck duck in ducks)
             {
+                //Console.WriteLine(duck);
                 Console.WriteLine($"{duck.Size} inch {duck.Kind}");
             }
         }
+        
     }
 }
