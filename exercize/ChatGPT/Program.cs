@@ -2,7 +2,8 @@
 using System.Text.Json.Serialization;
 
 // токен из личного кабинета
-string apiKey = "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";
+string apiKey = "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";
+//string apiKey = "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";
 // адрес api для взаимодействия с чат-ботом
 string endpoint = "https://api.openai.com/v1/chat/completions";
 // набор соообщений диалога с чат-ботом
